@@ -3,3 +3,5 @@ main
 # IDE
 .idea/
 .vscode/
+# Config
+conf.go

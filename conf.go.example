@@ -1,0 +1,17 @@
+package main
+
+var (
+	dbUser     = "db_user"
+	dbPassword = "secure-pass"
+	dbHost     = "db"
+	dbPort     = 3306
+	dbName     = "ya"
+	securePath = "/34asdftq3rt90rhjdh210c7zsg;5dfsadf/"
+	webPort    = "8080"
+
+	//https mode with Let's encrypt. Uses tcp:443
+	useHttps = false
+	//Certificate parameters. Requred if useHttps=true
+	certEmail  = "gooogle@gmail.com"
+	certDomain = "yourbeautifuldomain.com"
+)
