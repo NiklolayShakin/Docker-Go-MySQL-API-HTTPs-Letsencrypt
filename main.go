@@ -149,8 +149,12 @@ func populateContact(dbresponse []*dbPerson) (contact contactInfo) {
 		//first cyclce , populate initial data
 
 		if i == 0 {
-
-			contact.Name = []string{person.first_name.String, person.full_name.String}
+			//check that first_name is not empty before adding to the slice
+			if len(person.first_name.String) != 0 {
+				contact.Name = []string{person.first_name.String, person.full_name.String}
+			} else {
+				contact.Name = []string{person.full_name.String}
+			}
 			contact.Phone = person.phone_number.String
 			contact.Email = person.email.String
 
@@ -190,8 +194,9 @@ func populateContact(dbresponse []*dbPerson) (contact contactInfo) {
 				newFirstName = true
 				newFullName  = true
 			)
+			//add new and not emtpy names to slice
 			for _, cn := range contact.Name {
-				if cn == person.first_name.String {
+				if cn == person.first_name.String || len(person.first_name.String) == 0 {
 					newFirstName = false
 					break
 				}
